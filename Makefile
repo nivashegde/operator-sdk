@@ -106,13 +106,13 @@ build/%.asc:
 
 test: test-unit ## Run the tests
 
-test-markdown test/markdown:
+test-markdown:
 	./hack/ci/marker
 
-test-sanity test/sanity: tidy
+test-sanity: tidy
 	./hack/tests/sanity-check.sh
 
-test-unit test/unit: ## Run the unit tests
+test-unit: ## Run the unit tests
 	$(Q)go test -count=1 -short ./cmd/...
 	$(Q)go test -count=1 -short ./pkg/...
 	$(Q)go test -count=1 -short ./internal/...
